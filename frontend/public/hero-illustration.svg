@@ -1,0 +1,32 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="800" height="600" rx="40" fill="#ECFDF5"/>
+  <rect x="454" y="90" width="268" height="420" rx="32" fill="#FFFFFF" stroke="#D1FAE5" stroke-width="8"/>
+  <rect x="478" y="120" width="220" height="48" rx="16" fill="#ECFCCB"/>
+  <rect x="478" y="192" width="220" height="30" rx="12" fill="#D1FAE5"/>
+  <rect x="478" y="240" width="220" height="30" rx="12" fill="#E0F2FE"/>
+  <rect x="478" y="288" width="220" height="30" rx="12" fill="#FEE2E2"/>
+  <rect x="478" y="336" width="220" height="30" rx="12" fill="#D1FAE5"/>
+  <rect x="478" y="384" width="220" height="88" rx="18" fill="#F8FAFC"/>
+  <circle cx="540" cy="470" r="36" fill="#34D399"/>
+  <path d="M523 470.5L534.5 482L566.5 450" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="570" cy="500" r="28" fill="#7DD3FC"/>
+  <path d="M566 500C566 504.418 562.418 508 558 508C553.582 508 550 504.418 550 500C550 495.582 553.582 492 558 492C562.418 492 566 495.582 566 500Z" fill="white"/>
+  <rect x="63" y="108" width="312" height="220" rx="32" fill="#059669" opacity="0.1"/>
+  <rect x="90" y="132" width="260" height="32" rx="16" fill="#10B981"/>
+  <rect x="114" y="190" width="216" height="18" rx="9" fill="#D1FAE5"/>
+  <rect x="114" y="224" width="180" height="18" rx="9" fill="#D1FAE5"/>
+  <rect x="114" y="258" width="200" height="18" rx="9" fill="#D1FAE5"/>
+  <rect x="114" y="292" width="120" height="18" rx="9" fill="#D1FAE5"/>
+  <path d="M115 324C115 308.745 126.745 297 142 297H248C263.255 297 275 308.745 275 324V356H115V324Z" fill="#A7F3D0"/>
+  <path d="M122 324V338H268V324C268 319.582 264.418 316 260 316H130C125.582 316 122 319.582 122 324Z" fill="#6EE7B7"/>
+  <circle cx="165" cy="346" r="10" fill="#10B981"/>
+  <circle cx="205" cy="346" r="10" fill="#10B981"/>
+  <circle cx="245" cy="346" r="10" fill="#10B981"/>
+  <path d="M80 450C80 428.91 97.909 411 119 411H216C237.091 411 255 428.91 255 450V467H80V450Z" fill="#F8FAFC"/>
+  <rect x="111" y="425" width="56" height="12" rx="6" fill="#A7F3D0"/>
+  <rect x="183" y="425" width="34" height="12" rx="6" fill="#D1FAE5"/>
+  <path d="M189 234L203 248L231 218" stroke="#15803D" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="100" cy="520" r="40" fill="#FDE68A"/>
+  <path d="M100 500L100 540" stroke="#92400E" stroke-width="8" stroke-linecap="round"/>
+  <path d="M80 520H120" stroke="#92400E" stroke-width="8" stroke-linecap="round"/>
+</svg>
