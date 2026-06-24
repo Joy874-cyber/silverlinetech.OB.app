@@ -1,12 +1,13 @@
 'use client';
 
-import Link from 'next/link';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
+import { addIncident, getCurrentUser } from '../../lib/auth';
 
-const incidentTypes = ['Incident', 'Complaint', 'Shift Handover', 'Daily Event'];
+const incidentTypes = ['Incident', 'Complaint', 'Daily Event'];
 const incidentCategories: Record<string, string[]> = {
   Incident: ['Theft', 'Shoplifting', 'Vandalism', 'Accident', 'Other'],
   Complaint: ['Customer complaint', 'Supplier issue', 'Employee concern', 'Service failure', 'Other'],
+  'Daily Event': ['Promotion', 'Delivery', 'Maintenance', 'Inspection', 'Other'],
 };
 
 export default function IncidentPage() {
@@ -16,10 +17,32 @@ export default function IncidentPage() {
   const [description, setDescription] = useState('');
   const [reportedBy, setReportedBy] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    setCategory(incidentCategories[type][0]);
+  }, [type]);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const currentUser = getCurrentUser();
+    const reporter = currentUser?.name || currentUser?.email || reportedBy || 'Supervisor';
+
+    addIncident({
+      type,
+      category,
+      location,
+      summary: description,
+      reporter,
+    });
+
+    setMessage('Incident saved successfully. It will now appear in the supervisor and admin incident lists.');
     setSubmitted(true);
+    setLocation('');
+    setDescription('');
+    setReportedBy('');
+    setType('Incident');
   };
 
   const handleTypeChange = (value: string) => {
@@ -33,11 +56,7 @@ export default function IncidentPage() {
     <main className="min-h-screen bg-slate-950 px-6 py-8 text-slate-100 sm:px-8">
       <div className="mx-auto flex max-w-3xl flex-col gap-8">
         <div className="rounded-[2rem] border border-slate-800 bg-slate-900/95 p-8 shadow-xl shadow-slate-950/20">
-          <Link href="/" className="text-sm font-semibold text-emerald-400 hover:text-emerald-200">
-            ← Back to home
-          </Link>
-
-          <h1 className="mt-6 text-3xl font-semibold text-white">Create a new incident entry</h1>
+          <h1 className="text-3xl font-semibold text-white">Create a new incident entry</h1>
           <p className="mt-3 text-slate-400">Capture details for complaints, handovers, events, or safety incidents.</p>
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-6">
@@ -59,25 +78,23 @@ export default function IncidentPage() {
               </select>
             </div>
 
-            {(type === 'Incident' || type === 'Complaint') && (
-              <div>
-                <label className="block text-sm font-medium text-slate-300" htmlFor="category">
-                  Category
-                </label>
-                <select
-                  id="category"
-                  value={category}
-                  onChange={(event) => setCategory(event.target.value)}
-                  className="mt-2 w-full rounded-2xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-500/20"
-                >
-                  {incidentCategories[type].map((item) => (
-                    <option key={item} value={item} className="bg-slate-950 text-slate-100">
-                      {item}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
+            <div>
+              <label className="block text-sm font-medium text-slate-300" htmlFor="category">
+                Category
+              </label>
+              <select
+                id="category"
+                value={category}
+                onChange={(event) => setCategory(event.target.value)}
+                className="mt-2 w-full rounded-2xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-500/20"
+              >
+                {incidentCategories[type].map((item) => (
+                  <option key={item} value={item} className="bg-slate-950 text-slate-100">
+                    {item}
+                  </option>
+                ))}
+              </select>
+            </div>
 
             <div>
               <label className="block text-sm font-medium text-slate-300" htmlFor="location">
@@ -103,7 +120,6 @@ export default function IncidentPage() {
                 type="text"
                 value={reportedBy}
                 onChange={(event) => setReportedBy(event.target.value)}
-                required
                 className="mt-2 w-full rounded-2xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-500/20"
                 placeholder="Officer name or team"
               />
@@ -134,7 +150,7 @@ export default function IncidentPage() {
 
           {submitted ? (
             <div className="mt-6 rounded-3xl bg-emerald-500/10 p-4 text-sm text-emerald-200">
-              Incident form submitted. Backend integration will be added next.
+              {message}
             </div>
           ) : null}
         </div>

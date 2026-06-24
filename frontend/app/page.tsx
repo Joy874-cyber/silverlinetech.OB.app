@@ -32,7 +32,7 @@ export default function Home() {
               Log a new incident
             </Link>
             <Link href="/admin" className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50">
-              Admin dashboard
+              Supervisor dashboard
             </Link>
             <Link href="/login" className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50">
               Go to login

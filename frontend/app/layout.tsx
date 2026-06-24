@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'Occurrence Book',
-  description: 'Mobile-first incident and shift handover recorder for supermarkets and malls.',
+  description: 'Mobile-first incident recorder for supermarkets and malls.',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -4,7 +4,6 @@ import Link from 'next/link';
 const navItems = [
   { label: 'Overview', href: '/admin' },
   { label: 'Incidents', href: '/admin/incidents' },
-  { label: 'Handovers', href: '/admin/handovers' },
   { label: 'Reports', href: '/admin/reports' },
   { label: 'Settings', href: '/admin/settings' },
 ];
@@ -16,10 +15,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         <div className="grid gap-6 lg:grid-cols-[280px_1fr]">
           <aside className="space-y-6 rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm shadow-slate-200/50">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emerald-700">Admin</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-emerald-700">Supervisor</p>
               <h1 className="mt-3 text-2xl font-semibold text-slate-950">Dashboard</h1>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                Navigate admin areas for incidents, handovers, reports, and settings.
+                Navigate supervisor areas for incidents, reports, and settings.
               </p>
             </div>
 
@@ -51,7 +50,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
             </div>
 
             <div className="rounded-3xl bg-emerald-600/5 p-5 text-sm leading-6 text-slate-700">
-              Use this sidebar to jump between admin pages and manage operational activity across the team.
+              Use this sidebar to jump between supervisor pages and manage operational activity across the team.
             </div>
           </aside>
 
